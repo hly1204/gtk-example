@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+release_dir=$1
+cp -pv $MSYSTEM_PREFIX/bin/gdbus.exe $release_dir/
+ldd $release_dir/*.exe|grep -iv system32|grep -vi windows|grep -v :$  | cut -f2 -d\> | cut -f1 -d\( | tr '\\' '\/' |while read a; do ! [ -e "$release_dir/`basename $a`" ] && cp -pv "$a" $release_dir/; done
+exit 0
