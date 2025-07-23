@@ -20,6 +20,7 @@ jobs:
           msystem: ${{ matrix.sys }}
           update: true
           install: >-
+            git
             mingw-w64-${{ matrix.name }}-toolchain
             mingw-w64-${{ matrix.name }}-cmake
             mingw-w64-${{ matrix.name }}-gtk4
